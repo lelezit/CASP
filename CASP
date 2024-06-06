@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial - Centro Acadêmico de Direito UEPB</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Centro Acadêmico de Direito - UEPB</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Página Inicial</a></li>
+                <li><a href="diretoria.html">Diretoria Executiva</a></li>
+                <li><a href="conselho.html">Conselho dos Representantes</a></li>
+                <li><a href="biblioteca.html">Biblioteca CASP</a></li>
+                <li><a href="arraia.html">Arraiá da Ilha</a></li>
+                <li><a href="portal.html">Portal do Aluno</a></li>
+                <li><a href="avisos.html">Avisos</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="inicio">
+            <h2>Bem-vindo ao Centro Acadêmico de Direito</h2>
+            <p>Este é o portal oficial do Centro Acadêmico de Direito da Universidade Estadual da Paraíba. Aqui você encontrará informações sobre a diretoria, conselhos, eventos e muito mais.</p>
+            <div id="carousel">
+                <!-- Carrossel de fotos/vídeos -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Centro Acadêmico de Direito - UEPB. Todos os direitos reservados.</p>
+        <div class="social-media">
+            <a href="https://www.facebook.com" target="_blank">Facebook</a>
+            <a href="https://www.twitter.com" target="_blank">Twitter</a>
+            <a href="https://www.instagram.com" target="_blank">Instagram</a>
+        </div>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>
+
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background: #007FFF; /* azul 'azur' */
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 2rem;
+    text-align: center;
+}
+
+footer {
+    background: #007FFF;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer .social-media {
+    margin-top: 10px;
+}
+
+footer .social-media a {
+    color: #FFD700; /* amarelo vibrante */
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+footer .social-media a:hover {
+    text-decoration: underline;
+}
+document.addEventListener('DOMContentLoaded', function() {
+    // Inicialização do carrossel
+    let carouselIndex = 0;
+    const carouselItems = document.querySelectorAll('#carousel .carousel-item');
+    const totalItems = carouselItems.length;
+
+    function showCarouselItem(index) {
+        carouselItems.forEach((item, i) => {
+            item.style.display = i === index ? 'block' : 'none';
+        });
+    }
+
+    function nextCarouselItem() {
+        carouselIndex = (carouselIndex + 1) % totalItems;
+        showCarouselItem(carouselIndex);
+    }
+
+    setInterval(nextCarouselItem, 3000);
+    showCarouselItem(carouselIndex);
+});
